@@ -24,7 +24,7 @@ public class ProfessorController {
     }
 
     @PostMapping
-    public void registerProfessor(@RequestBody Professor professor) {
-        professorService.addNewProfessor(professor);
+    public Professor registerProfessor(@RequestBody Professor professor) {
+        return professorService.addNewProfessor(professor);
     }
 }

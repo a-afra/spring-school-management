@@ -21,7 +21,7 @@ public class FacultyService {
         return facultyRepository.findAll();
     }
 
-    public void addNewFaculty(Faculty faculty) {
-        facultyRepository.save(faculty);
+    public Faculty addNewFaculty(Faculty faculty) {
+        return facultyRepository.save(faculty);
     }
 }

@@ -22,11 +22,11 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public void addNewCourse(Course course) {
+    public Course addNewCourse(Course course) {
         /*Optional<Course> courseOptional = courseRepository.findById(course.getId());
         if (courseOptional.isPresent()) {
             throw new IllegalStateException("course existed");
         }*/
-        courseRepository.save(course);
+        return courseRepository.save(course);
     }
 }

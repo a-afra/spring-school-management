@@ -24,7 +24,7 @@ public class CourseController {
     }
 
     @PostMapping
-    public void registerNewCourse(@RequestBody Course course) {
-        courseService.addNewCourse(course);
+    public Course registerNewCourse(@RequestBody Course course) {
+        return courseService.addNewCourse(course);
     }
 }

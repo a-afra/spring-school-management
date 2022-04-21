@@ -22,14 +22,13 @@ public class Professor {
 
     @Id
     @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
+            name = "professor_sequence",
+            sequenceName = "professor_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = SEQUENCE,
-            generator = "student_sequence"
-
+            generator = "professor_sequence"
     )
     @Column(name = "id", updatable = false)
     private Long id;

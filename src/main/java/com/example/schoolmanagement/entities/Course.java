@@ -24,7 +24,6 @@ public class Course {
     @GeneratedValue(
             strategy = SEQUENCE,
             generator = "course_sequence"
-
     )
     @Column(name = "id", updatable = false)
     private Long id;

@@ -21,7 +21,7 @@ public class ProfessorService {
         return professorRepository.findAll();
     }
 
-    public void addNewProfessor(Professor professor) {
-        professorRepository.save(professor);
+    public Professor addNewProfessor(Professor professor) {
+        return professorRepository.save(professor);
     }
 }
