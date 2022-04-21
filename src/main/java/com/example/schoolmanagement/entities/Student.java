@@ -1,8 +1,13 @@
 package com.example.schoolmanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -50,6 +55,11 @@ public class Student {
     @Column(name = "national_id", nullable = false)
     private Long nationalId;
 
+    @NonNull
+    @JsonIgnore
+    @ManyToMany(mappedBy = "enrolledStudents")
+    private List<Course> courses;
+
     @Override
     public String toString() {
         return "Student{" +
@@ -58,6 +68,7 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", nationalId=" + nationalId +
+                ", courses=" + courses +
                 '}';
     }
 }

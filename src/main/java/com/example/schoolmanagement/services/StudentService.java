@@ -40,6 +40,10 @@ public class StudentService {
         studentRepository.deleteById(studentId);
     }
 
+    public Optional<Student> getById(Long studentId) {
+        return studentRepository.findById(studentId);
+    }
+
     /*@Transactional
     public void updateStudent(Long studentId, String email) {
         Student student = studentRepository.findById(studentId)

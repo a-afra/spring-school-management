@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 
+import java.util.List;
+
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
@@ -34,12 +36,26 @@ public class Course {
     @NonNull
     private Integer unit;
 
+    @NonNull
+    @ManyToMany
+    @JoinTable(
+            name = "student_enrolled",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
+    private List<Student> enrolledStudents;
+
+    public void enrollStudent(Student student) {
+        enrolledStudents.add(student);
+    }
+
     @Override
     public String toString() {
         return "Course{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", unit=" + unit +
+                ", enrolledStudents=" + enrolledStudents +
                 '}';
     }
 }
