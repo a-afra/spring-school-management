@@ -1,8 +1,11 @@
 package com.example.schoolmanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+
+import java.util.List;
 
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -49,14 +52,20 @@ public class Professor {
     @Column(name = "national_id", nullable = false)
     private Long nationalId;
 
+    @NonNull
+    @JsonIgnore
+    @OneToMany(mappedBy = "professor")
+    private List<Course> courses;
+
     @Override
     public String toString() {
-        return "professor{" +
+        return "Professor{" +
                 "id=" + id +
                 ", personnelId=" + personnelId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", nationalId=" + nationalId +
+                ", courses=" + courses +
                 '}';
     }
 }

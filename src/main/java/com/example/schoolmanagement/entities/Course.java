@@ -45,6 +45,13 @@ public class Course {
     )
     private List<Student> enrolledStudents;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "professor_id",
+            referencedColumnName = "id"
+    )
+    private Professor professor;
+
     public void enrollStudent(Student student) {
         enrolledStudents.add(student);
     }
@@ -56,6 +63,7 @@ public class Course {
                 ", name='" + name + '\'' +
                 ", unit=" + unit +
                 ", enrolledStudents=" + enrolledStudents +
+                ", professor=" + professor +
                 '}';
     }
 }

@@ -37,4 +37,11 @@ public class CourseController {
             @PathVariable("studentId") Long studentId) {
         return courseService.enrollStudentToCourse(courseId, studentId);
     }
+
+    @PutMapping(path = "/{courseId}/professor/{professorId}")
+    public Course assignProfessorToCourse(
+            @PathVariable("courseId") Long courseId,
+            @PathVariable("professorId") Long professorId) {
+        return courseService.assignProfessorToCourse(courseId, professorId);
+    }
 }
